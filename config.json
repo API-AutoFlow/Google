@@ -1,0 +1,81 @@
+{
+  "$product": {
+    "name": "API AutoFlow",
+    "version": "1.0.29"
+  },
+  "Inbound": [
+    {
+      "id": "89bd984c-a12c-4eaa-b4a4-9284e27abfb0",
+      "meta": {},
+      "value": {
+        "name": "test",
+        "port": 8080,
+        "type": "http server"
+      }
+    }
+  ],
+  "InboundEndpoint": [
+    {
+      "id": "acd972fe-287f-4b8f-bb7a-014036424101",
+      "meta": {
+        "index": [
+          "inbound",
+          "89bd984c-a12c-4eaa-b4a4-9284e27abfb0"
+        ]
+      },
+      "value": {
+        "default-test": "059ebc7b-2b4e-4c0f-9e4b-84b028a85f78",
+        "method": "ANY",
+        "name": "test",
+        "path": "/",
+        "type": "endpoint"
+      }
+    }
+  ],
+  "InboundEndpointFlow": [
+    {
+      "id": "acd972fe-287f-4b8f-bb7a-014036424101",
+      "meta": {
+        "index": [
+          "inbound",
+          "89bd984c-a12c-4eaa-b4a4-9284e27abfb0"
+        ]
+      },
+      "value": [
+        {
+          "$action": "data/set",
+          "at-location": {
+            "__$afref__": "data",
+            "path": [
+              "response",
+              "body"
+            ]
+          },
+          "value": "testing hello world"
+        }
+      ]
+    }
+  ],
+  "InboundEndpointTest": [
+    {
+      "id": "059ebc7b-2b4e-4c0f-9e4b-84b028a85f78",
+      "meta": {
+        "index": [
+          "inbound",
+          "89bd984c-a12c-4eaa-b4a4-9284e27abfb0",
+          "endpoint",
+          "acd972fe-287f-4b8f-bb7a-014036424101"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    }
+  ]
+}
